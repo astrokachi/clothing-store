@@ -1,4 +1,5 @@
-input{
-  width: 20px;
+.app__con {
+	max-width: 1500px;
+	margin-left: auto;
+	margin-right: auto;
 }
-

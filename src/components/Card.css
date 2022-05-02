@@ -1,0 +1,20 @@
+.card {
+	padding: 2em;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+  justify-content: center;
+  background-color: var(--clr-primary-7);
+  border-radius: 5px;
+  gap: 30px;
+}
+
+.svgcon {
+  background: var(--clr-primary-10);
+	width: max-content;
+  padding: 1.06em 1.1em .9em 1.1em;
+  border-radius: 50%;
+  /* margin-bottom: 10px; */
+}
