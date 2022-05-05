@@ -1,5 +1,7 @@
 .home {
 	padding-top: 100px;
+	max-width: 100vw;
+	overflow: hidden;
 }
 
 .hero {

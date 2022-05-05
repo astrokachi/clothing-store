@@ -4,9 +4,7 @@ import CardImg from "./components/CardImg";
 
 import "./Home.css";
 
-const Home = () => {
-
-
+const Home = ({ products }) => {
 	return (
 		<div className="home">
 			{/*  */}
@@ -41,9 +39,13 @@ const Home = () => {
 				<h1 className="feat__header">Featured Products</h1>
 				<div className="feat--line" />
 				<div className="feat__box">
-					<CardImg />
-					<CardImg />
-					<CardImg />
+					{products.map((product, index) => {
+						if (index < 3) {
+							return <CardImg product={product} key={product.id} />;
+						} else {
+							return null;
+						}
+					})}
 				</div>
 				<div>
 					<button className="feat__button">All Products</button>{" "}
@@ -143,8 +145,6 @@ const Home = () => {
 					<button className="footer__button">Subscirbe</button>
 				</div>
 			</div>
-
-		
 		</div>
 	);
 };

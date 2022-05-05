@@ -1,0 +1,32 @@
+.about {
+  min-height: 90vh;
+	height: max-content;
+	padding: 140px 30px 40px 30px;
+}
+
+.about__container {
+	width: 100%;
+	display: grid;
+	/* height: 400px; */
+	grid-template-columns: 1fr 1fr;
+	gap: 2em;
+}
+
+.about__photo {
+	background: url("https://react-course-comfy-sloth-store.netlify.app/static/media/hero-bcg.a876f19f.jpeg");
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+
+.about__header{
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+
+.about__p{
+  line-height: 40px;
+}

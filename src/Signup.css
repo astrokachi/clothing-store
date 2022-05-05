@@ -14,7 +14,7 @@
 	margin-right: auto;
 	border-radius: 10px;
 	padding: 2em;
-	background: var(--clr-grey-9);
+	/* background: var(--clr-grey-9); */
 }
 
 .signin__signup {
@@ -40,7 +40,7 @@
   /* height: 30px; */
   outline: none;
   border-radius: 5px;
-  border: none;
+  border: 1px solid var(--clr-grey-3);
   width: 100%;
   padding: 9px;
   font-size: 16px;

@@ -8,18 +8,19 @@ import {
 	decrement,
 	selectValue,
 } from "../features/counter/counterSlice";
-import { selectUser, selectUsername } from "../features/counter/userSlice";
+import { logout, selectUser } from "../features/counter/userSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ hamburger, setHamburger }) => {
 	const dispatch = useDispatch();
 	const value = useSelector(selectValue);
 	const user = useSelector(selectUser);
-	const username = useSelector(selectUsername);
 
 	const logOut = () => {
+		dispatch(logout());
 		signOut(auth);
 	};
 
@@ -44,10 +45,18 @@ const Navbar = ({ hamburger, setHamburger }) => {
 					<span className={!hamburger ? "ham c" : "ham c close"}></span>
 				</div>
 				<div className="navbar__navItems">
-					<div className="navbar__item">Home</div>
-					<div className="navbar__item">About</div>
-					<div className="navbar__item">Products</div>
-					<div className="navbar__item">Checkout</div>
+					<Link to={"/"}>
+						<div className="navbar__item">Home</div>
+					</Link>
+					<Link to={"/about"}>
+						<div className="navbar__item">About</div>
+					</Link>
+					<Link to={"/products"}>
+						<div className="navbar__item">Products</div>
+					</Link>
+					<Link to="/checkout">
+						<div className="navbar__item">Checkout</div>
+					</Link>
 				</div>
 				<div className="navbar__aside">
 					<div className="cart">
@@ -69,14 +78,22 @@ const Navbar = ({ hamburger, setHamburger }) => {
 			<Fade right when={hamburger}>
 				<div className={!hamburger ? "sidenav" : "on"}>
 					<div className="sidee">
-						<p className="email side">You're logged in as </p>
-						<p className="name side"> {username}</p>
+						<p className="email side">You're logged in </p>
+						{/* <p className="name side"></p> */}
 					</div>
 					<div className="sidenavoff">
-						<div className="navbar__item">Home</div>
-						<div className="navbar__item">About</div>
-						<div className="navbar__item">Products</div>
-						<div className="navbar__item">Checkout</div>
+						<Link to={"/"} onClick={() => setHamburger(!hamburger)}>
+							<div className="navbar__item">Home</div>
+						</Link>
+						<Link to={"/about"} onClick={() => setHamburger(!hamburger)}>
+							<div className="navbar__item">About</div>
+						</Link>
+						<Link to={"/products"} onClick={() => setHamburger(!hamburger)}>
+							<div className="navbar__item">Products</div>
+						</Link>
+						<Link to="/checkout" onClick={() => setHamburger(!hamburger)}>
+							<div className="navbar__item">Checkout</div>
+						</Link>
 					</div>
 
 					<div className="cart">
@@ -92,8 +109,8 @@ const Navbar = ({ hamburger, setHamburger }) => {
 			<Fade when={value}>
 				<div className={value ? "opts" : "opt off"}>
 					<div className="namecon">
-						<p className="email">You're logged in</p>
-						<p className="name">{username}</p>
+						<p className="email">You're logged in as</p>
+						<p className="name">{user.name}</p>
 					</div>
 					<button className="button" onClick={logOut}>
 						Logout

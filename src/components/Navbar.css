@@ -35,8 +35,15 @@
 	height: 50px;
 }
 
+Link {
+	text-decoration: none;
+	color: var(--clr-grey-2);
+}
+
 .navbar__item {
 	cursor: pointer;
+	text-decoration: none;
+	color: var(--clr-grey-2);
 }
 
 .cart {
