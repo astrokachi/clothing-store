@@ -9,7 +9,7 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 	const [activeLine, setActiveLine] = useState("All")
 	const [sort, setSort] = useState("lowest")
 	const [search, setSearch] = useState("")
-	const [show, setShow] = useState(true)
+
 
 	const handleSearch = (e) => {
 		if(e.target.value == ""){
@@ -25,7 +25,6 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 		if(active === "All"){
 			setActiveLine(active)
 			setProducts(data)
-			setShow(!show)
 		}
 		else{
 			const filtered = data.filter(item => item.data.collection?.toLowerCase().includes(active.toLowerCase()))
@@ -33,6 +32,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 			setProducts(filtered)
 		}
 	}
+
+	// const handleSort = (sort) ={
+
+	// }
 
 	return (
 		<div className="products">
@@ -76,7 +79,6 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 				<div className="product__con">
 				{products ? products.map((product) => {
 					return (
-						<Fade when={show}>
 						<Link to={`./products/product`} >
 							<div key={product.id} className="product" >
 								<div className="products__cardCon">
@@ -84,7 +86,6 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								</div>
 							</div>
 						</Link>
-				</Fade>
 					);
 				}) : ""}
 				</div>
