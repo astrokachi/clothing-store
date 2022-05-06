@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./About";
 import { collection, getDocs } from "firebase/firestore";
 import Products from "./Products";
+import Product from "./Product";
 
 function App() {
 	const [name, setName] = useState("");
@@ -19,8 +20,9 @@ function App() {
 	const user = useSelector(selectUser);
 	const [hamburger, setHamburger] = useState(false);
 	const [products, setProducts] = useState([]);
-	const [data, setData] = useState([...products]);
+	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
+	// const [product, setProduct] = useState("")
 
 	useEffect(() => {
 		getProducts();
@@ -29,6 +31,10 @@ function App() {
 	useEffect(() => {
 		console.log(products);
 	}, [products]);
+
+	// useEffect(() => {
+	// 	console.log("data", data);
+	// }, [data]);
 
 	function getProducts() {
 		const colRef = collection(db, "products");
@@ -40,6 +46,7 @@ function App() {
 				}));
 				setProducts(prods);
 				setLoading(true);
+				setData(prods);
 			})
 			.catch((err) => {
 				console.log(err.message);
@@ -92,17 +99,19 @@ function App() {
 							}}
 						>
 							<Routes>
-								<Route
-									path="/"
-									element={
-										<Home products={data} setProducts={setData} data={products} />
-									}
-								/>
+								<Route path="/" element={<Home products={products} />} />
 								<Route path="/about" element={<About />} />
 								<Route
 									path="/products"
-									element={<Products products={products} />}
+									element={
+										<Products
+											products={data}
+											setProducts={setData}
+											data={products}
+										/>
+									}
 								/>
+								<Route path={`/products/product`} element={<Product />} />
 								<Route path="/checkout" element={<checkOut />} />
 							</Routes>
 						</div>
