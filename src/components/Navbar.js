@@ -109,7 +109,7 @@ const Navbar = ({ hamburger, setHamburger }) => {
 			<Fade when={value}>
 				<div className={value ? "opts" : "opt off"}>
 					<div className="namecon">
-						<p className="email">You're logged in as</p>
+						<p className="email">You're logged in</p>
 						<p className="name">{user.name}</p>
 					</div>
 					<button className="button" onClick={logOut}>

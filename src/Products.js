@@ -33,9 +33,14 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 		}
 	}
 
-	// const handleSort = (sort) ={
-
-	// }
+	const handleSort = (sort) => {
+		if(sort === "lowest"){
+			console.log(sort)
+		}
+		if(sort === "highest"){}
+		if(sort === "A-Z"){}
+		if(sort === "Z-A"){}
+	}
 
 	return (
 		<div className="products">
@@ -87,7 +92,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 							</div>
 						</Link>
 					);
-				}) : ""}
+				}) : <div>
+							Loading
+					</div>
+				}
 				</div>
 			</div>
 
