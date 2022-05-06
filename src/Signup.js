@@ -3,8 +3,7 @@ import "./Signup.css";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-	signOut,
-	onAuthStateChanged,
+
 } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -50,7 +49,7 @@ const Signup = ({ name, setName }) => {
 									sign in
 								</span>{" "}
 							</p>
-							<form className="signin__form">
+							{/* <form className="signin__form">
 								<p className="signin__input">Name</p>
 								<input
 									value={name}
@@ -59,7 +58,7 @@ const Signup = ({ name, setName }) => {
 									type={"email"}
 									onChange={(e) => setName(e.target.value)}
 								></input>
-							</form>
+							</form> */}
 							<form className="signin__form">
 								<p className="signin__input">Email Address</p>
 								<input

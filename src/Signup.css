@@ -8,12 +8,13 @@
 }
 
 .signin__con {
-	margin-top: 6em;
+	margin-top: 7em;
 	max-width: 400px;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 10px;
 	padding: 2em;
+  border: 1px solid var(--clr-grey-4)
 	/* background: var(--clr-grey-9); */
 }
 
@@ -55,4 +56,8 @@
   background: var(--clr-primary-9);
   margin-top: 20px;
   cursor: pointer;
+}
+
+.signin__header{
+  text-align: center;
 }

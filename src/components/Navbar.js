@@ -13,11 +13,13 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+import { selectCount } from "../features/counter/countSlice";
 
 const Navbar = ({ hamburger, setHamburger }) => {
 	const dispatch = useDispatch();
 	const value = useSelector(selectValue);
 	const user = useSelector(selectUser);
+	const count = useSelector(selectCount);
 
 	const logOut = () => {
 		dispatch(logout());
@@ -60,6 +62,7 @@ const Navbar = ({ hamburger, setHamburger }) => {
 				</div>
 				<div className="navbar__aside">
 					<div className="cart">
+					<div className="c">{count > 1 && count}</div>
 						<h3>Cart</h3>
 						<FaShoppingCart className="car" />
 					</div>
@@ -97,6 +100,7 @@ const Navbar = ({ hamburger, setHamburger }) => {
 					</div>
 
 					<div className="cart">
+						<div className="c">{count}</div>
 						<h3>Cart</h3>
 						<FaShoppingCart className="car" />
 					</div>

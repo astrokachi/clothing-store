@@ -52,6 +52,11 @@ Link {
 	align-items: center;
 	cursor: pointer;
 	font-size: 18px;
+	color: var(--clr-grey-2);
+}
+
+.c {
+	position: absolute;
 }
 
 .log {

@@ -22,7 +22,9 @@ function App() {
 	const [products, setProducts] = useState([]);
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
-	// const [product, setProduct] = useState("")
+	const [product, setProduct] = useState({
+		data: { name: "product", image: "", price: "$123" },
+	});
 
 	useEffect(() => {
 		getProducts();
@@ -32,9 +34,9 @@ function App() {
 		console.log(products);
 	}, [products]);
 
-	// useEffect(() => {
-	// 	console.log("data", data);
-	// }, [data]);
+	useEffect(() => {
+		console.log("product", product);
+	}, [product]);
 
 	function getProducts() {
 		const colRef = collection(db, "products");
@@ -108,10 +110,14 @@ function App() {
 											products={data}
 											setProducts={setData}
 											data={products}
+											setProduct={setProduct}
 										/>
 									}
 								/>
-								<Route path={`/products/product`} element={<Product />} />
+								<Route
+									path={`/products/product`}
+									element={<Product product={product} />}
+								/>
 								<Route path="/checkout" element={<checkOut />} />
 							</Routes>
 						</div>

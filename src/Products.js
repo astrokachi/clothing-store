@@ -84,8 +84,8 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 				<div className="product__con">
 				{products ? products.map((product) => {
 					return (
-						<Link to={`./products/product`} >
-							<div key={product.id} className="product" >
+						<Link to={`/products/product`} onMouseEnter={() => setProduct(product)}>
+							<div key={product.id} className="products__product" >
 								<div className="products__cardCon">
 									<CardImg product={product}/>
 								</div>
