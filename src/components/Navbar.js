@@ -11,7 +11,6 @@ import {
 import { logout, selectUser } from "../features/counter/userSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import { selectCartItems } from "../features/counter/cartSlice";
 
@@ -82,7 +81,6 @@ const Navbar = ({ hamburger, setHamburger }) => {
 					</div>
 				</div>
 			</div>
-			<Fade right when={hamburger}>
 				<div className={!hamburger ? "sidenav" : "on"}>
 					<div className="sidee">
 						<p className="email side">You're logged in </p>
@@ -114,7 +112,7 @@ const Navbar = ({ hamburger, setHamburger }) => {
 						Logout
 					</button>
 				</div>
-			</Fade>
+			
 				<div className={value ? "opts" : "opt off"}>
 					<div className="namecon">
 						<p className="email">You're logged in</p>
