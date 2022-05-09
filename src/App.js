@@ -13,16 +13,19 @@ import { collection, getDocs } from "firebase/firestore";
 import Products from "./Products";
 import Product from "./Product";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
+import Loader from "./components/Loader";
 
 function App() {
-	const [name, setName] = useState("");
+	// const [name, setName] = useState("");
 	const value = useSelector(selectValue);
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const [hamburger, setHamburger] = useState(false);
 	const [products, setProducts] = useState([]);
 	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [authloading, setAuthLoading] = useState(true);
+	const [apiloading, setApiLoading] = useState(true)
 	const [product, setProduct] = useState({});
 
 	useEffect(() => {
@@ -33,8 +36,6 @@ function App() {
 		console.log(products);
 	}, [products]);
 
-
-
 	function getProducts() {
 		const colRef = collection(db, "products");
 		getDocs(colRef)
@@ -44,7 +45,7 @@ function App() {
 					id: doc.id,
 				}));
 				setProducts(prods);
-				setLoading(true);
+				setApiLoading(false);
 				setData(prods);
 			})
 			.catch((err) => {
@@ -54,12 +55,12 @@ function App() {
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((userLogged) => {
+			setAuthLoading(false);
 			if (userLogged) {
 				dispatch(
 					login({
 						uid: userLogged.uid,
 						email: userLogged.email,
-						name: name,
 					})
 				);
 			} else {
@@ -67,7 +68,7 @@ function App() {
 			}
 		});
 		return unsubscribe;
-	}, [dispatch, name]);
+	}, [dispatch]);
 
 	const handleClickFalse = () => {
 		if (value) {
@@ -86,7 +87,7 @@ function App() {
 		<div>
 			<Router>
 				{!user ? (
-					<Signup name={name} setName={setName} />
+					<>{authloading ? <Loader /> : <Signup />}</>
 				) : (
 					<div className="app">
 						<Navbar hamburger={hamburger} setHamburger={setHamburger} />
@@ -98,7 +99,10 @@ function App() {
 							}}
 						>
 							<Routes>
-								<Route path="/" element={<Home products={products} setProduct={setProduct} />} />
+								<Route
+									path="/"
+									element={<Home products={products} setProduct={setProduct} />}
+								/>
 								<Route path="/about" element={<About />} />
 								<Route
 									path="/products"
@@ -108,6 +112,7 @@ function App() {
 											setProducts={setData}
 											data={products}
 											setProduct={setProduct}
+											apiloading={apiloading}
 										/>
 									}
 								/>
@@ -115,12 +120,12 @@ function App() {
 									<Route
 										path={`/products/product`}
 										element={
-											<Product product={product} setProduct={setProduct} />
+											<Product product={product} setProduct={setProduct}  />
 										}
 									/>
 								)}
 								<Route path="/cart" element={<Cart />} />
-								{/* <Route path="/checkout" element={<checkOut />} /> */}
+								{/* <Route path="/checkout" element={<Checkout />} /> */}
 							</Routes>
 						</div>
 						<div className="bottom">

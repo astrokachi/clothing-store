@@ -4,17 +4,30 @@
 	overflow: hidden;
 	margin-left: auto;
 	margin-right: auto;
-  font-size: 16px;
+	font-size: 16px;
+}
+
+.err {
+	padding-bottom: 15px;
+	color: var(--clr-primary-4);
+}
+
+.inter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  font-size: 20px;
 }
 
 .signin__con {
-	margin-top: 7em;
+	margin-top: 6em;
 	max-width: 400px;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 10px;
 	padding: 2em;
-  border: 1px solid var(--clr-grey-4)
+	border: 1px solid var(--clr-grey-4);
 	/* background: var(--clr-grey-9); */
 }
 
@@ -26,13 +39,13 @@
 	background: none;
 	border: none;
 	color: var(--clr-grey-4);
-  cursor: pointer;
+	cursor: pointer;
 }
 
-.sign__buttoncon{
-  display: flex;
-  width: 100%;
-  justify-content: center;
+.sign__buttoncon {
+	display: flex;
+	width: 100%;
+	justify-content: center;
 }
 
 .signin__form {
@@ -40,30 +53,29 @@
 }
 
 .signin__input {
-  padding-bottom: 8px;
+	padding-bottom: 8px;
 }
 
-.sign__input{
-  /* height: 30px; */
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid var(--clr-grey-3);
-  width: 100%;
-  padding: 9px;
-  font-size: 16px;
+.sign__input {
+	/* height: 30px; */
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid var(--clr-grey-3);
+	width: 100%;
+	padding: 9px;
+	font-size: 16px;
 }
 
-
-.sign__button{
-  padding: 1em 2em;
-  border-radius: 5px;
-  border: none;
-  width: 100%;
-  background: var(--clr-primary-9);
-  margin-top: 20px;
-  cursor: pointer;
+.sign__button {
+	padding: 1em 2em;
+	border-radius: 5px;
+	border: none;
+	width: 100%;
+	background: var(--clr-primary-9);
+	margin-top: 20px;
+	cursor: pointer;
 }
 
-.signin__header{
-  text-align: center;
+.signin__header {
+	text-align: center;
 }

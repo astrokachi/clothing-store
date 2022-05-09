@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import CardImg from "./components/CardImg";
 import "./Products.css";
 import Fade from "react-reveal/Fade";
+import Loader from "./components/Loader";
 
-const Products = ({ products, data, setProducts, setProduct }) => {
+const Products = ({ products, data, setProducts, setProduct, apiloading }) => {
 	const [active, setActive] = useState("All");
 	const [activeLine, setActiveLine] = useState("All");
 	const [search, setSearch] = useState("");
@@ -145,29 +146,36 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 					</h3>
 					<div className="products--line" />
 				</div>
-				<div className="product__con">
-					{products ? (
-						products.map((product) => {
-							return (
-								<Link
-									to={`/products/product`}
-									key={product.id}
-									onMouseEnter={() => {
-										setProduct(product);
-									}}
-								>
-									<div className="products__product">
-										<div className="products__cardCon">
-											<CardImg product={product} />
+
+				{apiloading ? (
+					<div className="loader__con">
+						<Loader />
+					</div>
+				) : (
+					<div className="product__con">
+						{products ? (
+							products.map((product) => {
+								return (
+									<Link
+										to={`/products/product`}
+										key={product.id}
+										onMouseEnter={() => {
+											setProduct(product);
+										}}
+									>
+										<div className="products__product">
+											<div className="products__cardCon">
+												<CardImg product={product} />
+											</div>
 										</div>
-									</div>
-								</Link>
-							);
-						})
-					) : (
-						<div>Loading</div>
-					)}
-				</div>
+									</Link>
+								);
+							})
+						) : (
+							<div>Loading</div>
+						)}
+					</div>
+				)}
 			</div>
 		</div>
 	);
