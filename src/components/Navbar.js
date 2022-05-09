@@ -81,47 +81,47 @@ const Navbar = ({ hamburger, setHamburger }) => {
 					</div>
 				</div>
 			</div>
-				<div className={!hamburger ? "sidenav" : "on"}>
-					<div className="sidee">
-						<p className="email side">You're logged in </p>
-						{/* <p className="name side"></p> */}
-					</div>
-					<div className="sidenavoff">
-						<Link to={"/"} onClick={() => setHamburger(!hamburger)}>
-							<div className="navbar__item">Home</div>
-						</Link>
-						<Link to={"/about"} onClick={() => setHamburger(!hamburger)}>
-							<div className="navbar__item">About</div>
-						</Link>
-						<Link to={"/products"} onClick={() => setHamburger(!hamburger)}>
-							<div className="navbar__item">Products</div>
-						</Link>
-						{/* <Link to="/checkout" onClick={() => setHamburger(!hamburger)}>
+			<div className={!hamburger ? "sidenav" : "on"}>
+				<div className="sidee">
+					<p className="email side">You're logged in </p>
+					{/* <p className="name side"></p> */}
+				</div>
+				<div className="sidenavoff">
+					<Link to={"/"} onClick={() => setHamburger(!hamburger)}>
+						<div className="navbar__item">Home</div>
+					</Link>
+					<Link to={"/about"} onClick={() => setHamburger(!hamburger)}>
+						<div className="navbar__item">About</div>
+					</Link>
+					<Link to={"/products"} onClick={() => setHamburger(!hamburger)}>
+						<div className="navbar__item">Products</div>
+					</Link>
+					{/* <Link to="/checkout" onClick={() => setHamburger(!hamburger)}>
 							<div className="navbar__item">Checkout</div>
 						</Link> */}
+				</div>
+				<Link to="/cart" onClick={() => setHamburger(!hamburger)}>
+					<div className="navbar__cart">
+						<div className="ccc">{quantity}</div>
+						<h3>Cart</h3>
+						<FaShoppingCart className="car" />
 					</div>
-					<Link to="/cart">
-						<div className="navbar__cart">
-							<div className="ccc">{quantity}</div>
-							<h3>Cart</h3>
-							<FaShoppingCart className="car" />
-						</div>
-					</Link>
+				</Link>
 
-					<button className="button side" onClick={logOut}>
-						Logout
-					</button>
+				<button className="button side" onClick={logOut}>
+					Logout
+				</button>
+			</div>
+
+			<div className={value ? "opts" : "opt off"}>
+				<div className="namecon">
+					<p className="email">You're logged in</p>
+					<p className="name">{user.name}</p>
 				</div>
-			
-				<div className={value ? "opts" : "opt off"}>
-					<div className="namecon">
-						<p className="email">You're logged in</p>
-						<p className="name">{user.name}</p>
-					</div>
-					<button className="button" onClick={logOut}>
-						Logout
-					</button>
-				</div>
+				<button className="button" onClick={logOut}>
+					Logout
+				</button>
+			</div>
 		</div>
 	);
 };
