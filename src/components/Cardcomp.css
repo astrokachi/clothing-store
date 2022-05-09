@@ -1,0 +1,66 @@
+.cardcomp__con {
+	display: grid;
+	grid-template-rows: 75px;
+	gap: 3rem 1rem;
+	place-items: center;
+	margin-bottom: 3rem;
+	-webkit-box-align: center;
+	grid-template-columns: 1fr 1fr 1fr 1fr auto;
+	align-items: center;
+}
+
+
+.cardcomp__image{
+	height: 75px;
+	width: 100px;
+	border-radius: 5px;
+}
+
+.cardcomp__item{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+
+.cardcomp__price{
+	color: var(--clr-primary-7);
+	font-weight: 300;
+}
+
+.cardcomp__Subtotal{
+	color: var(--clr-grey-7);
+	font-weight: 300;
+}
+
+.cardcomp__trash{
+	color: #bb2525;
+	cursor: pointer;
+}
+
+.cardcomp__smprice{
+	display: none;
+}
+
+.product__count.cardcomp__quantity{
+	margin: 0;
+}
+
+@media screen and (max-width: 740px) {
+	.cardcomp__smprice{
+		display: block;
+		padding-top: 5px;
+	}
+
+	.cardcomp__price{
+		display:none;
+	}
+
+	.cardcomp__Subtotal{
+		display: none;
+	}
+
+	.cardcomp__con{
+		grid-template-columns: 2fr 1fr 1fr;
+	}
+}

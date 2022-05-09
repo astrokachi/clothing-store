@@ -19,6 +19,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
+	border-radius: 5px;
 }
 
 
@@ -29,4 +30,16 @@
 
 .about__p{
   line-height: 40px;
+}
+
+@media screen and (max-width: 990px) {
+	.about__container{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.about__photo{
+		height: 300px;
+		margin-bottom: 20px;
+	}
 }

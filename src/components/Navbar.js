@@ -13,13 +13,15 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
-import { selectCount } from "../features/counter/countSlice";
+import { selectCartItems } from "../features/counter/cartSlice";
 
 const Navbar = ({ hamburger, setHamburger }) => {
 	const dispatch = useDispatch();
 	const value = useSelector(selectValue);
 	const user = useSelector(selectUser);
-	const count = useSelector(selectCount);
+	const cart = useSelector(selectCartItems);
+
+	const quantity = useSelector((state) => state.cart.quantity);
 
 	const logOut = () => {
 		dispatch(logout());
@@ -56,16 +58,18 @@ const Navbar = ({ hamburger, setHamburger }) => {
 					<Link to={"/products"}>
 						<div className="navbar__item">Products</div>
 					</Link>
-					<Link to="/checkout">
+					{/* <Link to="/checkout">
 						<div className="navbar__item">Checkout</div>
-					</Link>
+					</Link> */}
 				</div>
 				<div className="navbar__aside">
-					<div className="cart">
-					<div className="c">{count > 1 && count}</div>
-						<h3>Cart</h3>
-						<FaShoppingCart className="car" />
-					</div>
+					<Link to={"/cart"}>
+						<div className="navbar__cart">
+							<div className="cc">{quantity}</div>
+							<h3>Cart</h3>
+							<FaShoppingCart className="car" />
+						</div>
+					</Link>
 
 					<div
 						className="log"
@@ -94,16 +98,17 @@ const Navbar = ({ hamburger, setHamburger }) => {
 						<Link to={"/products"} onClick={() => setHamburger(!hamburger)}>
 							<div className="navbar__item">Products</div>
 						</Link>
-						<Link to="/checkout" onClick={() => setHamburger(!hamburger)}>
+						{/* <Link to="/checkout" onClick={() => setHamburger(!hamburger)}>
 							<div className="navbar__item">Checkout</div>
-						</Link>
+						</Link> */}
 					</div>
-
-					<div className="cart">
-						<div className="c">{count}</div>
-						<h3>Cart</h3>
-						<FaShoppingCart className="car" />
-					</div>
+					<Link to="/cart">
+						<div className="navbar__cart">
+							<div className="ccc">{quantity}</div>
+							<h3>Cart</h3>
+							<FaShoppingCart className="car" />
+						</div>
+					</Link>
 
 					<button className="button side" onClick={logOut}>
 						Logout

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "./components/Card";
 import CardImg from "./components/CardImg";
 
@@ -15,7 +16,9 @@ const Home = ({ products }) => {
 						Looking for furniture? Checkout our quality products at prices
 						everyone can afford!
 					</p>
-					<button className="hero__button">SHOP NOW</button>
+					<Link to="/products">
+						<button className="hero__button">SHOP NOW</button>
+					</Link>
 				</div>
 				{/*  */}
 				<div className="hero__imgcon">
@@ -48,7 +51,9 @@ const Home = ({ products }) => {
 					})}
 				</div>
 				<div>
-					<button className="feat__button">All Products</button>{" "}
+					<Link to='/products'>
+						<button className="feat__button">All Products</button>{" "}
+					</Link>
 					{/* verify if user is logged in on click if no redirect to login */}
 				</div>
 			</div>

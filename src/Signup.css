@@ -29,6 +29,12 @@
   cursor: pointer;
 }
 
+.sign__buttoncon{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 .signin__form {
 	margin-bottom: 1em;
 }

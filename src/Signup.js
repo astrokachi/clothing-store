@@ -3,7 +3,6 @@ import "./Signup.css";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-
 } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -79,9 +78,11 @@ const Signup = ({ name, setName }) => {
 									placeholder="Enter your password"
 								/>
 							</form>
-							<button className="sign__button" onClick={createUser}>
-								Sign Up
-							</button>
+							<div className="sign__buttoncon">
+								<button className="feat__button " onClick={createUser}>
+									Sign Up
+								</button>
+							</div>
 						</div>
 					</div>
 				</>
@@ -118,9 +119,11 @@ const Signup = ({ name, setName }) => {
 								onChange={(e) => setPassword(e.target.value)}
 							/>
 						</form>
-						<button className="sign__button" onClick={signin}>
-							Sign In
-						</button>
+						<div className="sign__buttoncon">
+							<button className="feat__button " onClick={signin}>
+								Sign In
+							</button>
+						</div>
 					</div>
 				</div>
 			)}

@@ -12,6 +12,7 @@ import About from "./About";
 import { collection, getDocs } from "firebase/firestore";
 import Products from "./Products";
 import Product from "./Product";
+import Cart from "./Cart";
 
 function App() {
 	const [name, setName] = useState("");
@@ -22,9 +23,7 @@ function App() {
 	const [products, setProducts] = useState([]);
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const [product, setProduct] = useState({
-		data: { name: "product", image: "", price: "$123" },
-	});
+	const [product, setProduct] = useState({});
 
 	useEffect(() => {
 		getProducts();
@@ -34,9 +33,9 @@ function App() {
 		console.log(products);
 	}, [products]);
 
-	useEffect(() => {
-		console.log("product", product);
-	}, [product]);
+	// useEffect(() => {
+	// 	console.log("product", product);
+	// }, [product]);
 
 	function getProducts() {
 		const colRef = collection(db, "products");
@@ -114,11 +113,16 @@ function App() {
 										/>
 									}
 								/>
-								<Route
-									path={`/products/product`}
-									element={<Product product={product} />}
-								/>
-								<Route path="/checkout" element={<checkOut />} />
+								{product.data && (
+									<Route
+										path={`/products/product`}
+										element={
+											<Product product={product} setProduct={setProduct} />
+										}
+									/>
+								)}
+								<Route path="/cart" element={<Cart />} />
+								{/* <Route path="/checkout" element={<checkOut />} /> */}
 							</Routes>
 						</div>
 						<div className="bottom">
