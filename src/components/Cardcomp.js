@@ -40,8 +40,8 @@ const Cardcomp = ({ item }) => {
 						className="cardcomp__image"
 						style={{
 							background: `url(${item.data.image})`,
-							backgroundSize: "cover",
-							backgroundRepeat: "no-repeat",
+							backgroundSize: "contain",
+							backgroundRepeat: "no-repeat !important",
 							backgroundPosition: "center",
 						}}
 					/>

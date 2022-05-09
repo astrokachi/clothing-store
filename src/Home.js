@@ -5,7 +5,7 @@ import CardImg from "./components/CardImg";
 
 import "./Home.css";
 
-const Home = ({ products }) => {
+const Home = ({ products, setProduct }) => {
 	return (
 		<div className="home">
 			{/*  */}
@@ -44,14 +44,18 @@ const Home = ({ products }) => {
 				<div className="feat__box">
 					{products.map((product, index) => {
 						if (index < 3) {
-							return <CardImg product={product} key={product.id} />;
+							return (
+								<Link className="homelink" to="/products/product" onMouseEnter={() => setProduct(product)}>
+									<CardImg product={product} key={product.id} />
+								</Link>
+							);
 						} else {
 							return null;
 						}
 					})}
 				</div>
 				<div>
-					<Link to='/products'>
+					<Link to="/products">
 						<button className="feat__button">All Products</button>{" "}
 					</Link>
 					{/* verify if user is logged in on click if no redirect to login */}

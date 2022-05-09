@@ -122,6 +122,11 @@
 	display: flex;
 	gap: 2em;
 	margin: 65px 0;
+	justify-content: center;
+}
+
+.homelink{
+	flex-grow: 1;
 }
 
 .feat__button {
