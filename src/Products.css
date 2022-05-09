@@ -98,7 +98,7 @@ select {
 
 	.products__category{
 		display: flex;
-		gap: 1em;
+		gap: 16px;
 		flex-wrap: wrap;
 	}
 }

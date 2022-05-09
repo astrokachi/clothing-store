@@ -170,9 +170,13 @@ Link {
 	transform: scale(1.1);
 }
 
-@media screen and (max-width: 1014px) {
-}
+
 @media screen and (max-width: 900px) {
+
+	.navbar{
+		padding: 5px;
+	}
+
 	.navbar__image {
 		width: 100%;
 	}
@@ -194,7 +198,7 @@ Link {
 	.sidenavoff {
 		display: flex;
 		flex-direction: column;
-		gap: 2em;
+		gap: 40px;
 		top: 30px;
 		font-weight: 400;
 		margin-bottom: 20px;
@@ -211,10 +215,10 @@ Link {
 	.navbar__aside {
 		display: none !important;
 	}
-
+/* 
 	.navbar {
 		padding: 1em 2em !important;
-	}
+	} */
 
 	.hamburger {
 		position: relative;
