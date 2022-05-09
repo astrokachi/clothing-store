@@ -55,7 +55,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								activeLine === "All" ? "active" : ""
 							}`}
 							onMouseEnter={() => setActive("All")}
-							onClick={() => handleFilter(active)}
+							onClick={() => {
+								setActive("All");
+								handleFilter(active);
+							}}
 						>
 							All
 						</h4>
@@ -64,7 +67,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								activeLine === "Office" ? "active" : ""
 							}`}
 							onMouseEnter={() => setActive("Office")}
-							onClick={() => handleFilter(active)}
+							onClick={() => {
+								setActive("Office");
+								handleFilter(active);
+							}}
 						>
 							Office
 						</h4>
@@ -73,7 +79,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								activeLine === "Living Room" ? "active" : ""
 							}`}
 							onMouseEnter={() => setActive("Living Room")}
-							onClick={() => handleFilter(active)}
+							onClick={() => {
+								setActive("Living Room");
+								handleFilter(active);
+							}}
 						>
 							Living Room
 						</h4>
@@ -82,7 +91,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								activeLine === "Kitchen" ? "active" : ""
 							}`}
 							onMouseEnter={() => setActive("Kitchen")}
-							onClick={() => handleFilter(active)}
+							oonClick={() => {
+								setActive("Kitchen");
+								handleFilter(active);
+							}}
 						>
 							Kitchen
 						</h4>
@@ -91,7 +103,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								activeLine === "Bedroom" ? "active" : ""
 							}`}
 							onMouseEnter={() => setActive("Bedroom")}
-							onClick={() => handleFilter(active)}
+							onClick={() => {
+								setActive("Bedroom");
+								handleFilter(active);
+							}}
 						>
 							Bedroom
 						</h4>
@@ -100,7 +115,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								activeLine === "Dining" ? "active" : ""
 							}`}
 							onMouseEnter={() => setActive("Dining")}
-							onClick={() => handleFilter(active)}
+							onClick={() => {
+								setActive("Dining");
+								handleFilter(active);
+							}}
 						>
 							Dining
 						</h4>
@@ -109,7 +127,10 @@ const Products = ({ products, data, setProducts, setProduct }) => {
 								activeLine === "Kids" ? "active" : ""
 							}`}
 							onMouseEnter={() => setActive("Kids")}
-							onClick={() => handleFilter(active)}
+							onClick={() => {
+								setActive("Kids");
+								handleFilter(active);
+							}}
 						>
 							Kids
 						</h4>
