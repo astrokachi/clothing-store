@@ -33,9 +33,7 @@ function App() {
 		console.log(products);
 	}, [products]);
 
-	// useEffect(() => {
-	// 	console.log("product", product);
-	// }, [product]);
+
 
 	function getProducts() {
 		const colRef = collection(db, "products");
