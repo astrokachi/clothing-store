@@ -4,9 +4,7 @@ import { selectTotal } from "../features/counter/cartSlice";
 import "./Sub.css";
 
 const Sub = () => {
-	// const items = useSelector(selectCartItems);
-	// const total = [];
-	// const [num, setNum] = useState(0);
+	
 	const total = useSelector(selectTotal)
 
 	console.log(total)

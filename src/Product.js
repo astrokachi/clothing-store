@@ -9,7 +9,7 @@ import {
 	setMutated,
 } from "./features/counter/cartSlice";
 
-const Product = ({ product, setProduct }) => {
+const Product = ({ product }) => {
 	const dispatch = useDispatch();
 	const [quantity, setQuantity] = useState(1);
 	const items = useSelector(selectCartItems);
